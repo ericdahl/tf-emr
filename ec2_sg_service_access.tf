@@ -4,7 +4,7 @@ resource "aws_security_group" "service_access" {
 }
 
 resource "aws_security_group_rule" "service_access_egress" {
-  security_group_id = "${aws_security_group.slave.id}"
+  security_group_id = "${aws_security_group.service_access.id}"
 
   type      = "egress"
   protocol  = "all"

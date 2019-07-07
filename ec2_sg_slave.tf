@@ -51,7 +51,7 @@ resource "aws_security_group_rule" "slave_icmp_master" {
   protocol                 = "icmp"
   from_port                = -1
   to_port                  = -1
-  source_security_group_id = "${aws_security_group.slave.id}"
+  source_security_group_id = "${aws_security_group.master.id}"
 }
 
 resource "aws_security_group_rule" "slave_tcp_master" {
@@ -61,7 +61,7 @@ resource "aws_security_group_rule" "slave_tcp_master" {
   protocol                 = "tcp"
   from_port                = 0
   to_port                  = 65535
-  source_security_group_id = "${aws_security_group.slave.id}"
+  source_security_group_id = "${aws_security_group.master.id}"
 }
 
 resource "aws_security_group_rule" "slave_udp_master" {
@@ -71,7 +71,7 @@ resource "aws_security_group_rule" "slave_udp_master" {
   protocol                 = "udp"
   from_port                = 0
   to_port                  = 65535
-  source_security_group_id = "${aws_security_group.slave.id}"
+  source_security_group_id = "${aws_security_group.master.id}"
 }
 
 resource "aws_security_group_rule" "slave_tcp_service_access" {
